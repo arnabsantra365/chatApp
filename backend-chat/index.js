@@ -6,7 +6,7 @@ const axios = require("axios");
 const app = express();
 app.use(express.json());
 app.use(cors({ origin: true }));
-
+const PORT = process.env.PORT || 3001 ;
 
 app.post("/signup", async (req, res) => {
   const { username, secret, email, first_name, last_name } = req.body;
@@ -45,4 +45,6 @@ app.post("/login", async (req, res) => {
 });
 
 // vvv On port 3001!
-app.listen(3001);
+app.listen(PORT,()=>{
+    console.log(`Server at port ${PORT}`);
+});
