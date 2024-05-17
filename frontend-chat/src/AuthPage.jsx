@@ -7,11 +7,11 @@ const AuthPage = (props) => {
   const [email, setEmail] = useState();
   const [first_name, setFirstName] = useState();
   const [last_name, setLastName] = useState();
-axios.defaults.withCredentials=true;
+
   const onLogin = (e) => {
     e.preventDefault();
     axios
-      .post("https://chat-app-beige-chi.vercel.app/login", { username, secret })
+      .post("http://localhost:3001/login", { username, secret })
       .then((r) => props.onAuth({ ...r.data, secret })) // NOTE: over-ride secret
       .catch((e) => window.alert(JSON.stringify(e.response.data)));
   };
@@ -19,7 +19,7 @@ axios.defaults.withCredentials=true;
   const onSignup = (e) => {
     e.preventDefault();
     axios
-      .post("https://chat-app-beige-chi.vercel.app/signup", {
+      .post("http://localhost:3001/signup", {
         username,
         secret,
         email,
