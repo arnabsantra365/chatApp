@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(cors(
     {
-        origin: true,
+        origin: ["https://chat-app-frontend-ten-omega.vercel.app"],
         methods: ["POST", "GET"],
         credentials: true
     }
