@@ -11,7 +11,7 @@ const AuthPage = (props) => {
   const onLogin = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/login", { username, secret })
+      .post("https://chatapp-pwwh.onrender.com/login", { username, secret })
       .then((r) => props.onAuth({ ...r.data, secret })) // NOTE: over-ride secret
       .catch((e) => window.alert(JSON.stringify(e.response.data)));
   };
@@ -19,7 +19,7 @@ const AuthPage = (props) => {
   const onSignup = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/signup", {
+      .post("https://chatapp-pwwh.onrender.com/signup", {
         username,
         secret,
         email,
